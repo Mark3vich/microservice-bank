@@ -5,6 +5,8 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import com.example.AccountService.dto.request.AccountRequest;
+import com.example.AccountService.enums.Currency;
+import com.example.AccountService.exception.InvalidCurrencyException;
 import com.example.AccountService.model.Account;
 import com.example.AccountService.repository.AccountRepository;
 import com.example.AccountService.service.AccountService;
@@ -30,6 +32,17 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public boolean createAccount(AccountRequest request) {
+        // Проверка на валидность валюты
+        boolean validCurrency = false;
+        for (Currency c : Currency.values()) {
+            if (c == request.getCurrency()) {
+                validCurrency = true;
+                break;
+            }
+        }
+        if (!validCurrency) {
+            throw new InvalidCurrencyException("Валюта указана неверно");
+        }
         Account account = new Account();
 
         account.setName(request.getName());

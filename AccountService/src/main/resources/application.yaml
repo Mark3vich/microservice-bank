@@ -4,7 +4,7 @@ server:
 spring:
     datasource:
       url: jdbc:postgresql://localhost:5432/account_service
-      password: sede343343
+      password: dev
       driver-class-name: org.postgresql.Driver
       hikari:
         username: postgres

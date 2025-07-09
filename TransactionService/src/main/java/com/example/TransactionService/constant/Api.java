@@ -1,9 +1,9 @@
 package com.example.TransactionService.constant;
 
-public class Api {
-    private String api_url = "https://www.cbr-xml-daily.ru/daily.xml";
+import lombok.Getter;
 
-    public String get_api() {
-        return this.api_url;
-    }
+@Getter
+public class Api {
+    private String api = "https://www.cbr-xml-daily.ru/daily.xml";
+    private String account = "http://localhost:8081/api/v1/account/getAccount/";
 }

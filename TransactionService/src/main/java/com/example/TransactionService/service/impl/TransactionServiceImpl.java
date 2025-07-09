@@ -17,11 +17,13 @@ import org.w3c.dom.Document;
 import com.example.TransactionService.constant.Api;
 import com.example.TransactionService.dto.request.TransactionRequest;
 import com.example.TransactionService.service.TransactionService;
+import com.example.TransactionService.model.Account;
 import com.example.TransactionService.model.CurrencyInfo;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Element;
 import java.util.ArrayList;
 import java.util.List;
+import java.math.BigDecimal;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -29,15 +31,54 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-class TransactionServiceImpl implements TransactionService {@Override
+class TransactionServiceImpl implements TransactionService {
+    @Override
     public boolean sendMoney(TransactionRequest transactionRequest) {
-        return true;
+        try {
+            Api api = new Api();
+            RestTemplate restTemplate = new RestTemplate();
+
+            // Получаем аккаунт отправителя
+            String senderUrl = api.getApi() + transactionRequest.getSenderId();
+            Account accountSender = restTemplate.getForObject(senderUrl, Account.class);
+
+            // Получаем аккаунт получателя
+            String recipientUrl = api.getApi() + transactionRequest.getRecipientId();
+            Account accountRecipient = restTemplate.getForObject(recipientUrl, Account.class);
+
+            if (accountSender == null || accountRecipient == null) {
+                throw new RuntimeException("Account not found");
+            }
+
+            BigDecimal amount = transactionRequest.getAmount();
+
+            // Проверяем баланс
+            if (accountSender.getBalance().compareTo(amount) < 0) {
+                throw new RuntimeException("Insufficient funds");
+            }
+
+            // Обновляем баланс
+            accountSender.setBalance(accountSender.getBalance().subtract(amount));
+            accountRecipient.setBalance(accountRecipient.getBalance().add(amount));
+
+            // Отправляем PUT-запросы на обновление аккаунтов
+            String updateUrl = "http://localhost:8081/api/v1/account/updateAccount";
+            restTemplate.put(updateUrl, accountSender);
+            restTemplate.put(updateUrl, accountRecipient);
+
+            // Здесь можно добавить запись о транзакции в своей БД
+
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     public List<CurrencyInfo> getExchangeRate() {
         try {
             Api api = new Api();
-            String url = api.get_api();
+            String url = api.getApi();
             RestTemplate restTemplate = new RestTemplate();
             ResponseEntity<byte[]> response = restTemplate.getForEntity(url, byte[].class);
 
