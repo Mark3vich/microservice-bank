@@ -1,0 +1,35 @@
+databaseChangeLog:
+  - changeSet:
+      id: "1"
+      author: "auto"
+      changes:
+        - createTable:
+            tableName: transactions
+            columns:
+              - column:
+                  name: id
+                  type: 'varchar(36)'
+                  autoIncrement: false
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: sender_id
+                  type: 'varchar(36)'
+                  constraints:
+                    nullable: false
+              - column:
+                  name: recipient_id
+                  type: 'varchar(36)'
+                  constraints:
+                    nullable: false
+              - column:
+                  name: currency
+                  type: 'varchar(255)'
+                  constraints:
+                    nullable: false
+              - column:
+                  name: balance
+                  type: 'decimal(19,2)'
+                  constraints:
+                    nullable: false 

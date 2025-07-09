@@ -1,0 +1,36 @@
+server:
+  port: 8082
+
+spring:
+    datasource:
+      url: jdbc:postgresql://localhost:5432/transaction_service
+      password: dev
+      driver-class-name: org.postgresql.Driver
+      hikari:
+        username: postgres
+    jpa:
+      hibernate:
+        ddl-auto: update
+      database: postgresql
+      database-platform: org.hibernate.dialect.PostgreSQLDialect
+      show-sql: true
+      properties:
+        hibernate:
+          format_sql: true
+        id:
+          new_generator_mappings: true
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+logging:
+  file:
+    name: '/home/user/microservice-bank/TransactionService/src/main/resources/log/application.log'
+  level:
+    org.mapstruct: DEBUG
+    org.springframework.web.client.RestTemplate: DEBUG
+    org.apache.http.wire: DEBUG
+    com.example.task_management: DEBUG
+    com.example.bank.filter: DEBUG
+    com.example.bank.service.JwtService: DEBUG
+    org.springframework.security: DEBUG
