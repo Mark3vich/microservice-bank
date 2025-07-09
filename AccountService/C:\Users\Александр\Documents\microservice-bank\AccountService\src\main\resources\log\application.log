@@ -205,3 +205,8 @@ Caused by: org.postgresql.util.PSQLException: ВАЖНО: база данных 
 2025-07-09T15:06:23.426+03:00  INFO 131798 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-07-09T15:06:23.427+03:00  INFO 131798 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
 2025-07-09T15:06:24.018+03:00  INFO 131798 --- [http-nio-8081-exec-9] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 232 ms
+2025-07-09T16:22:20.723+03:00  INFO 131798 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-09T16:22:20.728+03:00  INFO 131798 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-07-09T16:22:20.732+03:00  INFO 131798 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-09T16:22:20.734+03:00  INFO 131798 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-09T16:22:20.743+03:00  INFO 131798 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

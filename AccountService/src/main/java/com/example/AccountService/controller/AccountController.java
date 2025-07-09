@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.AccountService.dto.request.AccountRequest;
+import com.example.AccountService.dto.request.TransferRequest;
 import com.example.AccountService.model.Account;
 import com.example.AccountService.service.AccountService;
 
@@ -72,5 +73,17 @@ public class AccountController {
             return ResponseEntity.ok("Аккаунт успешно удален");
         }
         return ResponseEntity.ok("Аккаунт не удален");
+    }
+
+    @Operation(summary = "Перевести деньги", description = "Перевод средств между аккаунтами", responses = {
+        @ApiResponse(responseCode = "200", description = "Перевод успешно выполнен", content = @Content),
+        @ApiResponse(responseCode = "400", description = "Ошибка перевода", content = @Content)
+    })
+    @PostMapping("/transfer")
+    public ResponseEntity<String> transferMoney(@RequestBody TransferRequest transferRequest) {
+        if (accountService.transferMoney(transferRequest.getFromAccountId(), transferRequest.getToAccountId(), transferRequest.getAmount(), transferRequest.getCurrency())) {
+            return ResponseEntity.ok("Перевод успешно выполнен");
+        }
+        return ResponseEntity.badRequest().body("Ошибка перевода");
     }
 }

@@ -1,5 +1,6 @@
 package com.example.AccountService.service.impl;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
@@ -80,6 +81,26 @@ public class AccountServiceImpl implements AccountService {
 
         accountRepository.delete(account);
 
+        return true;
+    }
+
+    @Override
+    public boolean transferMoney(UUID fromAccountId, UUID toAccountId, BigDecimal amount, Currency currency) {
+        if (fromAccountId.equals(toAccountId)) {
+            throw new IllegalArgumentException("Нельзя перевести деньги на тот же аккаунт");
+        }
+        Account fromAccount = accountRepository.findById(fromAccountId).orElse(null);
+        Account toAccount = accountRepository.findById(toAccountId).orElse(null);
+        if (fromAccount == null || toAccount == null) {
+            throw new RuntimeException("Один из аккаунтов не найден");
+        }
+        if (!fromAccount.getCurrency().equals(currency) || !toAccount.getCurrency().equals(currency)) {
+            throw new IllegalArgumentException("Валюта аккаунтов не совпадает с переданной валютой");
+        }
+        fromAccount.withdraw(amount);
+        toAccount.deposit(amount);
+        accountRepository.save(fromAccount);
+        accountRepository.save(toAccount);
         return true;
     }
     
