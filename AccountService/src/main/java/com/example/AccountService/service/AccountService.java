@@ -6,7 +6,6 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import com.example.AccountService.dto.request.AccountRequest;
-import com.example.AccountService.enums.Currency;
 import com.example.AccountService.model.Account;
 
 @Service
