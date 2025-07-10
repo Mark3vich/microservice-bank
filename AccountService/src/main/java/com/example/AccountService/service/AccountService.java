@@ -15,5 +15,5 @@ public interface AccountService {
     boolean createAccount(AccountRequest request);
     boolean updateAccount(AccountRequest request, UUID id);
     boolean deleteAccount(UUID id);
-    boolean transferMoney(UUID fromAccountId, UUID toAccountId, BigDecimal amount, Currency currency);
+    boolean transferMoney(UUID fromAccountId, UUID toAccountId, BigDecimal amount);
 }

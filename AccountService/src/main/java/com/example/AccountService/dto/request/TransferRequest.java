@@ -3,8 +3,6 @@ package com.example.AccountService.dto.request;
 import java.math.BigDecimal;
 import java.util.UUID;
 
-import com.example.AccountService.enums.Currency;
-
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
@@ -17,6 +15,4 @@ public class TransferRequest {
     private UUID toAccountId;
     @Schema(description = "Сумма перевода", example = "100.0")
     private BigDecimal amount;
-    @Schema(description = "Валюта перевода")
-    private Currency currency;
 } 

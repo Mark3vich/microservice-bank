@@ -81,7 +81,7 @@ public class AccountController {
     })
     @PostMapping("/transfer")
     public ResponseEntity<String> transferMoney(@RequestBody TransferRequest transferRequest) {
-        if (accountService.transferMoney(transferRequest.getFromAccountId(), transferRequest.getToAccountId(), transferRequest.getAmount(), transferRequest.getCurrency())) {
+        if (accountService.transferMoney(transferRequest.getFromAccountId(), transferRequest.getToAccountId(), transferRequest.getAmount())) {
             return ResponseEntity.ok("Перевод успешно выполнен");
         }
         return ResponseEntity.badRequest().body("Ошибка перевода");
