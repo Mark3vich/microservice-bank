@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.example.AccountService.client.CurrencyClient;
 import com.example.AccountService.dto.request.AccountRequest;
 import com.example.AccountService.enums.Currency;
 import com.example.AccountService.exception.InvalidCurrencyException;
@@ -21,6 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class AccountServiceImpl implements AccountService {
     private final AccountRepository accountRepository;
+    private final CurrencyClient currencyClient;
 
     @Override
     public Account getAccount(UUID id) {
@@ -98,10 +100,11 @@ public class AccountServiceImpl implements AccountService {
         BigDecimal amountToDeposit = amount;
         // Если валюты разные, конвертируем сумму
         if (!fromAccount.getCurrency().equals(toAccount.getCurrency())) {
-            String url = String.format("http://localhost:8082/api/v1/transfer/currency/convert?from=%s&to=%s&amount=%s",
-                    fromAccount.getCurrency().name(), toAccount.getCurrency().name(), amount);
-            RestTemplate restTemplate = new RestTemplate();
-            amountToDeposit = restTemplate.getForObject(url, BigDecimal.class);
+            amountToDeposit = currencyClient.convert(
+                fromAccount.getCurrency().name(),
+                toAccount.getCurrency().name(),
+                amount
+            );
             if (amountToDeposit == null) {
                 throw new RuntimeException("Ошибка конвертации валюты");
             }

@@ -101,8 +101,11 @@ class TransactionServiceImpl implements TransactionService {
         if (to.equalsIgnoreCase("RUB") || to.equalsIgnoreCase("RUR")) {
             toRate = BigDecimal.ONE;
         }
-        if (fromRate == null || toRate == null) {
-            throw new IllegalArgumentException("Unknown currency code");
+        if (fromRate == null) {
+            throw new IllegalArgumentException("Unknown currency code: " + from);
+        }
+        if (toRate == null) {
+            throw new IllegalArgumentException("Unknown currency code: " + to);
         }
         // amount * fromRate / toRate
         return amount.multiply(fromRate).divide(toRate, 6, BigDecimal.ROUND_HALF_UP);
