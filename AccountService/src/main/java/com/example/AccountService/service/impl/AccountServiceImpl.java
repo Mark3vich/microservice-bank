@@ -4,8 +4,6 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
-
 import com.example.AccountService.client.CurrencyClient;
 import com.example.AccountService.dto.request.AccountRequest;
 import com.example.AccountService.enums.Currency;
@@ -23,6 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 public class AccountServiceImpl implements AccountService {
     private final AccountRepository accountRepository;
     private final CurrencyClient currencyClient;
+    private final SagaOrchestrator sagaOrchestrator;
 
     @Override
     public Account getAccount(UUID id) {
@@ -97,7 +96,7 @@ public class AccountServiceImpl implements AccountService {
         if (fromAccount == null || toAccount == null) {
             throw new RuntimeException("Один из аккаунтов не найден");
         }
-        BigDecimal amountToDeposit = amount;
+        final BigDecimal amountToDeposit;
         // Если валюты разные, конвертируем сумму
         if (!fromAccount.getCurrency().equals(toAccount.getCurrency())) {
             amountToDeposit = currencyClient.convert(
@@ -108,12 +107,25 @@ public class AccountServiceImpl implements AccountService {
             if (amountToDeposit == null) {
                 throw new RuntimeException("Ошибка конвертации валюты");
             }
+        } else {
+            amountToDeposit = amount;
         }
-        fromAccount.withdraw(amount);
-        toAccount.deposit(amountToDeposit);
-        accountRepository.save(fromAccount);
-        accountRepository.save(toAccount);
-        return true;
+        return sagaOrchestrator.transfer(fromAccountId, toAccountId, amount, new SagaOrchestrator.TransferStep() {
+            @Override
+            public void withdraw(Account from, BigDecimal amt) {
+                from.withdraw(amt);
+            }
+            @Override
+            public void deposit(Account to, BigDecimal amt) {
+                to.deposit(amountToDeposit);
+            }
+            @Override
+            public void compensate(Account from, Account to, BigDecimal amt) {
+                // Откат: вернуть деньги на fromAccount, если они были сняты
+                from.deposit(amt);
+                to.withdraw(amountToDeposit);
+            }
+        });
     }
     
 }
