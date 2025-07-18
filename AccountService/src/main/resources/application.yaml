@@ -22,6 +22,14 @@ spring:
         jdbc:
           lob:
             non_contextual_creation: true
+    feign:
+      client:
+        config:
+          default:
+            retryer:
+              period: 2000
+              maxPeriod: 5000
+              maxAttempts: 3
 
 logging:
   file:

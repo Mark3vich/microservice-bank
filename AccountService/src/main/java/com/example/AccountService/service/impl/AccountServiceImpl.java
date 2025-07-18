@@ -5,6 +5,8 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.retry.annotation.Retryable;
+import org.springframework.retry.annotation.Backoff;
 
 import com.example.AccountService.client.CurrencyClient;
 import com.example.AccountService.dto.request.AccountRequest;
@@ -94,6 +96,15 @@ public class AccountServiceImpl implements AccountService {
         return true;
     }
 
+    @Retryable(
+        value = { RuntimeException.class },
+        maxAttempts = 3,
+        backoff = @Backoff(delay = 1000)
+    )
+    public BigDecimal convertCurrency(String from, String to, BigDecimal amount) {
+        return currencyClient.convert(from, to, amount);
+    }
+
     @Override
     @Transactional
     public boolean transferMoney(UUID fromAccountId, UUID toAccountId, BigDecimal amount) {
@@ -108,7 +119,7 @@ public class AccountServiceImpl implements AccountService {
         final BigDecimal amountToDeposit;
         // Если валюты разные, конвертируем сумму
         if (!fromAccount.getCurrency().equals(toAccount.getCurrency())) {
-            amountToDeposit = currencyClient.convert(
+            amountToDeposit = convertCurrency(
                 fromAccount.getCurrency().name(),
                 toAccount.getCurrency().name(),
                 amount

@@ -259,3 +259,8 @@ Caused by: org.postgresql.util.PSQLException: ОШИБКА: столбец "send
 2025-07-18T10:10:03.628+03:00 DEBUG 13776 --- [http-nio-8082-exec-5] o.s.web.client.RestTemplate              : Accept=[application/octet-stream, application/json, application/yaml, application/*+json, */*]
 2025-07-18T10:10:03.818+03:00 DEBUG 13776 --- [http-nio-8082-exec-5] o.s.web.client.RestTemplate              : Response 200 OK
 2025-07-18T10:10:03.818+03:00 DEBUG 13776 --- [http-nio-8082-exec-5] o.s.web.client.RestTemplate              : Reading to [[B] as "text/xml"
+2025-07-18T12:20:13.675+03:00  INFO 13776 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-18T12:20:13.677+03:00  INFO 13776 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-07-18T12:20:13.684+03:00  INFO 13776 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-18T12:20:13.686+03:00  INFO 13776 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-18T12:20:13.693+03:00  INFO 13776 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
