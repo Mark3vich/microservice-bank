@@ -1,462 +1,33 @@
-2025-07-16T10:33:20.105+03:00  INFO 72394 --- [main] c.e.T.TransactionServiceApplication      : Starting TransactionServiceApplication using Java 21.0.7 with PID 72394 (/home/user/microservice-bank/TransactionService/target/classes started by user in /home/user/microservice-bank/TransactionService)
-2025-07-16T10:33:20.114+03:00  INFO 72394 --- [main] c.e.T.TransactionServiceApplication      : No active profile set, falling back to 1 default profile: "default"
-2025-07-16T10:33:20.675+03:00  INFO 72394 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-07-16T10:33:20.728+03:00  INFO 72394 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 1 JPA repository interface.
-2025-07-16T10:33:21.114+03:00  INFO 72394 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
-2025-07-16T10:33:21.131+03:00  INFO 72394 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-07-16T10:33:21.131+03:00  INFO 72394 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
-2025-07-16T10:33:21.205+03:00  INFO 72394 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-07-16T10:33:21.206+03:00  INFO 72394 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1042 ms
-2025-07-16T10:33:21.315+03:00  INFO 72394 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-07-16T10:33:21.519+03:00  INFO 72394 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2a8f8555
-2025-07-16T10:33:21.521+03:00  INFO 72394 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-07-16T10:33:21.689+03:00  INFO 72394 --- [main] liquibase.database                       : Set default schema name to public
-2025-07-16T10:33:21.875+03:00  INFO 72394 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
-2025-07-16T10:33:21.914+03:00  INFO 72394 --- [main] liquibase.changelog                      : Change failed validation!
-2025-07-16T10:33:21.916+03:00  INFO 72394 --- [main] liquibase.command                        : Logging exception.
-2025-07-16T10:33:21.917+03:00  INFO 72394 --- [main] liquibase.ui                             : ERROR: Exception Details
-2025-07-16T10:33:21.917+03:00  INFO 72394 --- [main] liquibase.ui                             : ERROR: Exception Primary Class:  ValidationFailedException
-2025-07-16T10:33:21.917+03:00  INFO 72394 --- [main] liquibase.ui                             : ERROR: Exception Primary Reason:  Validation Failed:
-     1 changesets check sum
-          db/changelog/db.changelog-master.yaml::1::auto was: 9:0def14a24584e7a18f3961536dbe9036 but is now: 9:95dff7d2384d958d82ca250d29726866
-
-2025-07-16T10:33:21.917+03:00  INFO 72394 --- [main] liquibase.ui                             : ERROR: Exception Primary Source:  4.31.1
-2025-07-16T10:33:21.918+03:00  INFO 72394 --- [main] liquibase.command                        : Command execution complete
-2025-07-16T10:33:22.488+03:00  WARN 72394 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ValidationFailedException: Validation Failed:
-     1 changesets check sum
-          db/changelog/db.changelog-master.yaml::1::auto was: 9:0def14a24584e7a18f3961536dbe9036 but is now: 9:95dff7d2384d958d82ca250d29726866
-
-2025-07-16T10:33:22.489+03:00  INFO 72394 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-07-16T10:33:22.499+03:00  INFO 72394 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-07-16T10:33:22.505+03:00  INFO 72394 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2025-07-16T10:33:22.514+03:00  INFO 72394 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-07-16T10:33:22.525+03:00 ERROR 72394 --- [main] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ValidationFailedException: Validation Failed:
-     1 changesets check sum
-          db/changelog/db.changelog-master.yaml::1::auto was: 9:0def14a24584e7a18f3961536dbe9036 but is now: 9:95dff7d2384d958d82ca250d29726866
-
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:328) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.8.jar:6.2.8]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.8.jar:6.2.8]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.3.jar:3.5.3]
-	at com.example.TransactionService.TransactionServiceApplication.main(TransactionServiceApplication.java:10) ~[classes/:na]
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ValidationFailedException: Validation Failed:
-     1 changesets check sum
-          db/changelog/db.changelog-master.yaml::1::auto was: 9:0def14a24584e7a18f3961536dbe9036 but is now: 9:95dff7d2384d958d82ca250d29726866
-
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-6.2.8.jar:6.2.8]
-	... 10 common frames omitted
-Caused by: liquibase.exception.LiquibaseException: liquibase.exception.CommandExecutionException: liquibase.exception.ValidationFailedException: Validation Failed:
-     1 changesets check sum
-          db/changelog/db.changelog-master.yaml::1::auto was: 9:0def14a24584e7a18f3961536dbe9036 but is now: 9:95dff7d2384d958d82ca250d29726866
-
-	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:288) ~[liquibase-core-4.31.1.jar:na]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.8.jar:6.2.8]
-	... 17 common frames omitted
-Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.ValidationFailedException: Validation Failed:
-     1 changesets check sum
-          db/changelog/db.changelog-master.yaml::1::auto was: 9:0def14a24584e7a18f3961536dbe9036 but is now: 9:95dff7d2384d958d82ca250d29726866
-
-	at liquibase.command.CommandScope.lambda$execute$6(CommandScope.java:300) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:210) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:186) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.command.CommandScope.execute(CommandScope.java:241) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Liquibase.lambda$update$0(Liquibase.java:216) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.lambda$child$0(Scope.java:201) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:210) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:200) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:179) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Liquibase.runInScope(Liquibase.java:1333) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Liquibase.update(Liquibase.java:205) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Liquibase.update(Liquibase.java:188) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:326) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:278) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.lambda$child$0(Scope.java:201) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:210) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:200) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:179) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:271) ~[liquibase-core-4.31.1.jar:na]
-	... 19 common frames omitted
-Caused by: liquibase.exception.ValidationFailedException: Validation Failed:
-     1 changesets check sum
-          db/changelog/db.changelog-master.yaml::1::auto was: 9:0def14a24584e7a18f3961536dbe9036 but is now: 9:95dff7d2384d958d82ca250d29726866
-
-	at liquibase.changelog.DatabaseChangeLog.validate(DatabaseChangeLog.java:384) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.run(DatabaseChangelogCommandStep.java:88) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.command.CommandScope.lambda$execute$6(CommandScope.java:253) ~[liquibase-core-4.31.1.jar:na]
-	... 37 common frames omitted
-
-2025-07-16T10:41:43.388+03:00  INFO 78431 --- [main] c.e.T.TransactionServiceApplication      : Starting TransactionServiceApplication using Java 21.0.7 with PID 78431 (/home/user/microservice-bank/TransactionService/target/classes started by user in /home/user/microservice-bank/TransactionService)
-2025-07-16T10:41:43.389+03:00  INFO 78431 --- [main] c.e.T.TransactionServiceApplication      : No active profile set, falling back to 1 default profile: "default"
-2025-07-16T10:41:44.044+03:00  INFO 78431 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-07-16T10:41:44.089+03:00  INFO 78431 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 33 ms. Found 1 JPA repository interface.
-2025-07-16T10:41:44.497+03:00  INFO 78431 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
-2025-07-16T10:41:44.508+03:00  INFO 78431 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-07-16T10:41:44.508+03:00  INFO 78431 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
-2025-07-16T10:41:44.549+03:00  INFO 78431 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-07-16T10:41:44.550+03:00  INFO 78431 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1124 ms
-2025-07-16T10:41:44.696+03:00  INFO 78431 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-07-16T10:41:44.942+03:00  INFO 78431 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@23564dd2
-2025-07-16T10:41:44.944+03:00  INFO 78431 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-07-16T10:41:47.093+03:00  INFO 78431 --- [main] liquibase.database                       : Set default schema name to public
-2025-07-16T10:41:47.318+03:00  INFO 78431 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
-2025-07-16T10:41:47.361+03:00  INFO 78431 --- [main] liquibase.changelog                      : Change failed validation!
-2025-07-16T10:41:47.363+03:00  INFO 78431 --- [main] liquibase.command                        : Logging exception.
-2025-07-16T10:41:47.363+03:00  INFO 78431 --- [main] liquibase.ui                             : ERROR: Exception Details
-2025-07-16T10:41:47.363+03:00  INFO 78431 --- [main] liquibase.ui                             : ERROR: Exception Primary Class:  ValidationFailedException
-2025-07-16T10:41:47.363+03:00  INFO 78431 --- [main] liquibase.ui                             : ERROR: Exception Primary Reason:  Validation Failed:
-     1 changesets check sum
-          db/changelog/db.changelog-master.yaml::1::auto was: 9:0def14a24584e7a18f3961536dbe9036 but is now: 9:95dff7d2384d958d82ca250d29726866
-
-2025-07-16T10:41:47.363+03:00  INFO 78431 --- [main] liquibase.ui                             : ERROR: Exception Primary Source:  4.31.1
-2025-07-16T10:41:47.364+03:00  INFO 78431 --- [main] liquibase.command                        : Command execution complete
-2025-07-16T10:41:47.976+03:00  WARN 78431 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ValidationFailedException: Validation Failed:
-     1 changesets check sum
-          db/changelog/db.changelog-master.yaml::1::auto was: 9:0def14a24584e7a18f3961536dbe9036 but is now: 9:95dff7d2384d958d82ca250d29726866
-
-2025-07-16T10:41:47.977+03:00  INFO 78431 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-07-16T10:41:47.986+03:00  INFO 78431 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-07-16T10:41:47.991+03:00  INFO 78431 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2025-07-16T10:41:48.005+03:00  INFO 78431 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-07-16T10:41:48.017+03:00 ERROR 78431 --- [main] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ValidationFailedException: Validation Failed:
-     1 changesets check sum
-          db/changelog/db.changelog-master.yaml::1::auto was: 9:0def14a24584e7a18f3961536dbe9036 but is now: 9:95dff7d2384d958d82ca250d29726866
-
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:328) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.8.jar:6.2.8]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.8.jar:6.2.8]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.3.jar:3.5.3]
-	at com.example.TransactionService.TransactionServiceApplication.main(TransactionServiceApplication.java:10) ~[classes/:na]
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ValidationFailedException: Validation Failed:
-     1 changesets check sum
-          db/changelog/db.changelog-master.yaml::1::auto was: 9:0def14a24584e7a18f3961536dbe9036 but is now: 9:95dff7d2384d958d82ca250d29726866
-
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-6.2.8.jar:6.2.8]
-	... 10 common frames omitted
-Caused by: liquibase.exception.LiquibaseException: liquibase.exception.CommandExecutionException: liquibase.exception.ValidationFailedException: Validation Failed:
-     1 changesets check sum
-          db/changelog/db.changelog-master.yaml::1::auto was: 9:0def14a24584e7a18f3961536dbe9036 but is now: 9:95dff7d2384d958d82ca250d29726866
-
-	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:288) ~[liquibase-core-4.31.1.jar:na]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.8.jar:6.2.8]
-	... 17 common frames omitted
-Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.ValidationFailedException: Validation Failed:
-     1 changesets check sum
-          db/changelog/db.changelog-master.yaml::1::auto was: 9:0def14a24584e7a18f3961536dbe9036 but is now: 9:95dff7d2384d958d82ca250d29726866
-
-	at liquibase.command.CommandScope.lambda$execute$6(CommandScope.java:300) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:210) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:186) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.command.CommandScope.execute(CommandScope.java:241) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Liquibase.lambda$update$0(Liquibase.java:216) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.lambda$child$0(Scope.java:201) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:210) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:200) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:179) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Liquibase.runInScope(Liquibase.java:1333) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Liquibase.update(Liquibase.java:205) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Liquibase.update(Liquibase.java:188) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:326) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:278) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.lambda$child$0(Scope.java:201) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:210) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:200) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:179) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:271) ~[liquibase-core-4.31.1.jar:na]
-	... 19 common frames omitted
-Caused by: liquibase.exception.ValidationFailedException: Validation Failed:
-     1 changesets check sum
-          db/changelog/db.changelog-master.yaml::1::auto was: 9:0def14a24584e7a18f3961536dbe9036 but is now: 9:95dff7d2384d958d82ca250d29726866
-
-	at liquibase.changelog.DatabaseChangeLog.validate(DatabaseChangeLog.java:384) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.run(DatabaseChangelogCommandStep.java:88) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.command.CommandScope.lambda$execute$6(CommandScope.java:253) ~[liquibase-core-4.31.1.jar:na]
-	... 37 common frames omitted
-
-2025-07-16T10:45:13.078+03:00  INFO 80879 --- [main] c.e.T.TransactionServiceApplication      : Starting TransactionServiceApplication using Java 21.0.7 with PID 80879 (/home/user/microservice-bank/TransactionService/target/classes started by user in /home/user/microservice-bank/TransactionService)
-2025-07-16T10:45:13.082+03:00  INFO 80879 --- [main] c.e.T.TransactionServiceApplication      : No active profile set, falling back to 1 default profile: "default"
-2025-07-16T10:45:13.749+03:00  INFO 80879 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-07-16T10:45:13.807+03:00  INFO 80879 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 45 ms. Found 1 JPA repository interface.
-2025-07-16T10:45:14.169+03:00  INFO 80879 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
-2025-07-16T10:45:14.186+03:00  INFO 80879 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-07-16T10:45:14.187+03:00  INFO 80879 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
-2025-07-16T10:45:14.225+03:00  INFO 80879 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-07-16T10:45:14.226+03:00  INFO 80879 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1114 ms
-2025-07-16T10:45:14.392+03:00  INFO 80879 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-07-16T10:45:14.630+03:00  INFO 80879 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1471b98d
-2025-07-16T10:45:14.631+03:00  INFO 80879 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-07-16T10:45:16.769+03:00  INFO 80879 --- [main] liquibase.database                       : Set default schema name to public
-2025-07-16T10:45:17.020+03:00  INFO 80879 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
-2025-07-16T10:45:17.044+03:00  INFO 80879 --- [main] liquibase.changelog                      : Change failed validation!
-2025-07-16T10:45:17.047+03:00  INFO 80879 --- [main] liquibase.command                        : Logging exception.
-2025-07-16T10:45:17.047+03:00  INFO 80879 --- [main] liquibase.ui                             : ERROR: Exception Details
-2025-07-16T10:45:17.048+03:00  INFO 80879 --- [main] liquibase.ui                             : ERROR: Exception Primary Class:  ValidationFailedException
-2025-07-16T10:45:17.048+03:00  INFO 80879 --- [main] liquibase.ui                             : ERROR: Exception Primary Reason:  Validation Failed:
-     1 changesets check sum
-          db/changelog/db.changelog-master.yaml::1::auto was: 9:0def14a24584e7a18f3961536dbe9036 but is now: 9:95dff7d2384d958d82ca250d29726866
-
-2025-07-16T10:45:17.048+03:00  INFO 80879 --- [main] liquibase.ui                             : ERROR: Exception Primary Source:  4.31.1
-2025-07-16T10:45:17.048+03:00  INFO 80879 --- [main] liquibase.command                        : Command execution complete
-2025-07-16T10:45:17.634+03:00  WARN 80879 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ValidationFailedException: Validation Failed:
-     1 changesets check sum
-          db/changelog/db.changelog-master.yaml::1::auto was: 9:0def14a24584e7a18f3961536dbe9036 but is now: 9:95dff7d2384d958d82ca250d29726866
-
-2025-07-16T10:45:17.635+03:00  INFO 80879 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-07-16T10:45:17.642+03:00  INFO 80879 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-07-16T10:45:17.645+03:00  INFO 80879 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2025-07-16T10:45:17.657+03:00  INFO 80879 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-07-16T10:45:17.669+03:00 ERROR 80879 --- [main] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ValidationFailedException: Validation Failed:
-     1 changesets check sum
-          db/changelog/db.changelog-master.yaml::1::auto was: 9:0def14a24584e7a18f3961536dbe9036 but is now: 9:95dff7d2384d958d82ca250d29726866
-
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:328) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.8.jar:6.2.8]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.8.jar:6.2.8]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.3.jar:3.5.3]
-	at com.example.TransactionService.TransactionServiceApplication.main(TransactionServiceApplication.java:10) ~[classes/:na]
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ValidationFailedException: Validation Failed:
-     1 changesets check sum
-          db/changelog/db.changelog-master.yaml::1::auto was: 9:0def14a24584e7a18f3961536dbe9036 but is now: 9:95dff7d2384d958d82ca250d29726866
-
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-6.2.8.jar:6.2.8]
-	... 10 common frames omitted
-Caused by: liquibase.exception.LiquibaseException: liquibase.exception.CommandExecutionException: liquibase.exception.ValidationFailedException: Validation Failed:
-     1 changesets check sum
-          db/changelog/db.changelog-master.yaml::1::auto was: 9:0def14a24584e7a18f3961536dbe9036 but is now: 9:95dff7d2384d958d82ca250d29726866
-
-	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:288) ~[liquibase-core-4.31.1.jar:na]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.8.jar:6.2.8]
-	... 17 common frames omitted
-Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.ValidationFailedException: Validation Failed:
-     1 changesets check sum
-          db/changelog/db.changelog-master.yaml::1::auto was: 9:0def14a24584e7a18f3961536dbe9036 but is now: 9:95dff7d2384d958d82ca250d29726866
-
-	at liquibase.command.CommandScope.lambda$execute$6(CommandScope.java:300) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:210) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:186) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.command.CommandScope.execute(CommandScope.java:241) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Liquibase.lambda$update$0(Liquibase.java:216) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.lambda$child$0(Scope.java:201) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:210) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:200) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:179) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Liquibase.runInScope(Liquibase.java:1333) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Liquibase.update(Liquibase.java:205) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Liquibase.update(Liquibase.java:188) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:326) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:278) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.lambda$child$0(Scope.java:201) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:210) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:200) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:179) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:271) ~[liquibase-core-4.31.1.jar:na]
-	... 19 common frames omitted
-Caused by: liquibase.exception.ValidationFailedException: Validation Failed:
-     1 changesets check sum
-          db/changelog/db.changelog-master.yaml::1::auto was: 9:0def14a24584e7a18f3961536dbe9036 but is now: 9:95dff7d2384d958d82ca250d29726866
-
-	at liquibase.changelog.DatabaseChangeLog.validate(DatabaseChangeLog.java:384) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.run(DatabaseChangelogCommandStep.java:88) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.command.CommandScope.lambda$execute$6(CommandScope.java:253) ~[liquibase-core-4.31.1.jar:na]
-	... 37 common frames omitted
-
-2025-07-16T10:48:19.282+03:00  INFO 83127 --- [main] c.e.T.TransactionServiceApplication      : Starting TransactionServiceApplication using Java 21.0.7 with PID 83127 (/home/user/microservice-bank/TransactionService/target/classes started by user in /home/user/microservice-bank/TransactionService)
-2025-07-16T10:48:19.283+03:00  INFO 83127 --- [main] c.e.T.TransactionServiceApplication      : No active profile set, falling back to 1 default profile: "default"
-2025-07-16T10:48:19.811+03:00  INFO 83127 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-07-16T10:48:19.856+03:00  INFO 83127 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 39 ms. Found 1 JPA repository interface.
-2025-07-16T10:48:20.136+03:00  INFO 83127 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
-2025-07-16T10:48:20.145+03:00  INFO 83127 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-07-16T10:48:20.146+03:00  INFO 83127 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
-2025-07-16T10:48:20.178+03:00  INFO 83127 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-07-16T10:48:20.179+03:00  INFO 83127 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 867 ms
-2025-07-16T10:48:20.316+03:00  INFO 83127 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-07-16T10:48:20.503+03:00  INFO 83127 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@76a6f045
-2025-07-16T10:48:20.504+03:00  INFO 83127 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-07-16T10:48:20.613+03:00  INFO 83127 --- [main] liquibase.database                       : Set default schema name to public
-2025-07-16T10:48:20.804+03:00  INFO 83127 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
-2025-07-16T10:48:20.832+03:00  INFO 83127 --- [main] liquibase.changelog                      : Change failed validation!
-2025-07-16T10:48:20.835+03:00  INFO 83127 --- [main] liquibase.command                        : Logging exception.
-2025-07-16T10:48:20.836+03:00  INFO 83127 --- [main] liquibase.ui                             : ERROR: Exception Details
-2025-07-16T10:48:20.836+03:00  INFO 83127 --- [main] liquibase.ui                             : ERROR: Exception Primary Class:  ValidationFailedException
-2025-07-16T10:48:20.836+03:00  INFO 83127 --- [main] liquibase.ui                             : ERROR: Exception Primary Reason:  Validation Failed:
-     1 changesets check sum
-          db/changelog/db.changelog-master.yaml::1::auto was: 9:0def14a24584e7a18f3961536dbe9036 but is now: 9:95dff7d2384d958d82ca250d29726866
-
-2025-07-16T10:48:20.836+03:00  INFO 83127 --- [main] liquibase.ui                             : ERROR: Exception Primary Source:  4.31.1
-2025-07-16T10:48:20.837+03:00  INFO 83127 --- [main] liquibase.command                        : Command execution complete
-2025-07-16T10:48:21.518+03:00  WARN 83127 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ValidationFailedException: Validation Failed:
-     1 changesets check sum
-          db/changelog/db.changelog-master.yaml::1::auto was: 9:0def14a24584e7a18f3961536dbe9036 but is now: 9:95dff7d2384d958d82ca250d29726866
-
-2025-07-16T10:48:21.518+03:00  INFO 83127 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-07-16T10:48:21.525+03:00  INFO 83127 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-07-16T10:48:21.527+03:00  INFO 83127 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2025-07-16T10:48:21.535+03:00  INFO 83127 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-07-16T10:48:21.545+03:00 ERROR 83127 --- [main] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ValidationFailedException: Validation Failed:
-     1 changesets check sum
-          db/changelog/db.changelog-master.yaml::1::auto was: 9:0def14a24584e7a18f3961536dbe9036 but is now: 9:95dff7d2384d958d82ca250d29726866
-
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:328) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.8.jar:6.2.8]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.8.jar:6.2.8]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.3.jar:3.5.3]
-	at com.example.TransactionService.TransactionServiceApplication.main(TransactionServiceApplication.java:10) ~[classes/:na]
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ValidationFailedException: Validation Failed:
-     1 changesets check sum
-          db/changelog/db.changelog-master.yaml::1::auto was: 9:0def14a24584e7a18f3961536dbe9036 but is now: 9:95dff7d2384d958d82ca250d29726866
-
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-6.2.8.jar:6.2.8]
-	... 10 common frames omitted
-Caused by: liquibase.exception.LiquibaseException: liquibase.exception.CommandExecutionException: liquibase.exception.ValidationFailedException: Validation Failed:
-     1 changesets check sum
-          db/changelog/db.changelog-master.yaml::1::auto was: 9:0def14a24584e7a18f3961536dbe9036 but is now: 9:95dff7d2384d958d82ca250d29726866
-
-	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:288) ~[liquibase-core-4.31.1.jar:na]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.8.jar:6.2.8]
-	... 17 common frames omitted
-Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.ValidationFailedException: Validation Failed:
-     1 changesets check sum
-          db/changelog/db.changelog-master.yaml::1::auto was: 9:0def14a24584e7a18f3961536dbe9036 but is now: 9:95dff7d2384d958d82ca250d29726866
-
-	at liquibase.command.CommandScope.lambda$execute$6(CommandScope.java:300) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:210) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:186) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.command.CommandScope.execute(CommandScope.java:241) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Liquibase.lambda$update$0(Liquibase.java:216) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.lambda$child$0(Scope.java:201) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:210) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:200) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:179) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Liquibase.runInScope(Liquibase.java:1333) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Liquibase.update(Liquibase.java:205) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Liquibase.update(Liquibase.java:188) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:326) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:278) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.lambda$child$0(Scope.java:201) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:210) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:200) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:179) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:271) ~[liquibase-core-4.31.1.jar:na]
-	... 19 common frames omitted
-Caused by: liquibase.exception.ValidationFailedException: Validation Failed:
-     1 changesets check sum
-          db/changelog/db.changelog-master.yaml::1::auto was: 9:0def14a24584e7a18f3961536dbe9036 but is now: 9:95dff7d2384d958d82ca250d29726866
-
-	at liquibase.changelog.DatabaseChangeLog.validate(DatabaseChangeLog.java:384) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.run(DatabaseChangelogCommandStep.java:88) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.command.CommandScope.lambda$execute$6(CommandScope.java:253) ~[liquibase-core-4.31.1.jar:na]
-	... 37 common frames omitted
-
-2025-07-16T10:49:24.043+03:00  INFO 83960 --- [main] c.e.T.TransactionServiceApplication      : Starting TransactionServiceApplication using Java 21.0.7 with PID 83960 (/home/user/microservice-bank/TransactionService/target/classes started by user in /home/user/microservice-bank/TransactionService)
-2025-07-16T10:49:24.046+03:00  INFO 83960 --- [main] c.e.T.TransactionServiceApplication      : No active profile set, falling back to 1 default profile: "default"
-2025-07-16T10:49:24.557+03:00  INFO 83960 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-07-16T10:49:24.631+03:00  INFO 83960 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69 ms. Found 1 JPA repository interface.
-2025-07-16T10:49:24.936+03:00  INFO 83960 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
-2025-07-16T10:49:24.947+03:00  INFO 83960 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-07-16T10:49:24.948+03:00  INFO 83960 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
-2025-07-16T10:49:24.985+03:00  INFO 83960 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-07-16T10:49:24.986+03:00  INFO 83960 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 902 ms
-2025-07-16T10:49:25.129+03:00  INFO 83960 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-07-16T10:49:25.341+03:00  INFO 83960 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2a484710
-2025-07-16T10:49:25.342+03:00  INFO 83960 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-07-16T10:49:25.450+03:00  INFO 83960 --- [main] liquibase.database                       : Set default schema name to public
-2025-07-16T10:49:25.621+03:00  INFO 83960 --- [main] liquibase.changelog                      : Creating database history table with name: public.databasechangelog
-2025-07-16T10:49:25.664+03:00  INFO 83960 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
-2025-07-16T10:49:25.685+03:00  INFO 83960 --- [main] liquibase.snapshot                       : Creating snapshot
-2025-07-16T10:49:25.757+03:00  INFO 83960 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
-2025-07-16T10:49:25.758+03:00  INFO 83960 --- [main] liquibase.command                        : Using deploymentId: 2652165108
-2025-07-16T10:49:25.760+03:00  INFO 83960 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
-2025-07-16T10:49:25.780+03:00  INFO 83960 --- [main] liquibase.ui                             : Running Changeset: db/changelog/db.changelog-master.yaml::1::auto
-2025-07-16T10:49:25.792+03:00  INFO 83960 --- [main] liquibase.changelog                      : Table transactions created
-2025-07-16T10:49:25.795+03:00  INFO 83960 --- [main] liquibase.changelog                      : ChangeSet db/changelog/db.changelog-master.yaml::1::auto ran successfully in 13ms
-2025-07-16T10:49:25.807+03:00  INFO 83960 --- [main] liquibase.util                           : UPDATE SUMMARY
-2025-07-16T10:49:25.807+03:00  INFO 83960 --- [main] liquibase.util                           : Run:                          1
-2025-07-16T10:49:25.807+03:00  INFO 83960 --- [main] liquibase.util                           : Previously run:               0
-2025-07-16T10:49:25.807+03:00  INFO 83960 --- [main] liquibase.util                           : Filtered out:                 0
-2025-07-16T10:49:25.807+03:00  INFO 83960 --- [main] liquibase.util                           : -------------------------------
-2025-07-16T10:49:25.808+03:00  INFO 83960 --- [main] liquibase.util                           : Total change sets:            1
-2025-07-16T10:49:25.808+03:00  INFO 83960 --- [main] liquibase.util                           : Update summary generated
-2025-07-16T10:49:25.810+03:00  INFO 83960 --- [main] liquibase.command                        : Update command completed successfully.
-2025-07-16T10:49:25.810+03:00  INFO 83960 --- [main] liquibase.ui                             : Liquibase: Update has been successful. Rows affected: 1
-2025-07-16T10:49:25.814+03:00  INFO 83960 --- [main] liquibase.lockservice                    : Successfully released change log lock
-2025-07-16T10:49:25.816+03:00  INFO 83960 --- [main] liquibase.command                        : Command execution complete
-2025-07-16T10:49:26.419+03:00  INFO 83960 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-07-16T10:49:26.445+03:00  INFO 83960 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.18.Final
-2025-07-16T10:49:26.465+03:00  INFO 83960 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-07-16T10:49:26.646+03:00  INFO 83960 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-07-16T10:49:26.679+03:00  WARN 83960 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-07-16T10:49:26.689+03:00  INFO 83960 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-07-18T08:44:50.946+03:00  INFO 13776 --- [main] c.e.T.TransactionServiceApplication      : Starting TransactionServiceApplication using Java 21.0.7 with PID 13776 (/home/user/microservice-bank/TransactionService/target/classes started by user in /home/user/microservice-bank/TransactionService)
+2025-07-18T08:44:50.951+03:00  INFO 13776 --- [main] c.e.T.TransactionServiceApplication      : No active profile set, falling back to 1 default profile: "default"
+2025-07-18T08:44:51.758+03:00  INFO 13776 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-18T08:44:51.818+03:00  INFO 13776 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 52 ms. Found 1 JPA repository interface.
+2025-07-18T08:44:52.171+03:00  INFO 13776 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2025-07-18T08:44:52.182+03:00  INFO 13776 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-18T08:44:52.182+03:00  INFO 13776 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-18T08:44:52.227+03:00  INFO 13776 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-18T08:44:52.228+03:00  INFO 13776 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1219 ms
+2025-07-18T08:44:52.389+03:00  INFO 13776 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-18T08:44:52.630+03:00  INFO 13776 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2a8f8555
+2025-07-18T08:44:52.631+03:00  INFO 13776 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-18T08:44:52.734+03:00  INFO 13776 --- [main] liquibase.database                       : Set default schema name to public
+2025-07-18T08:44:52.953+03:00  INFO 13776 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2025-07-18T08:44:53.004+03:00  INFO 13776 --- [main] liquibase.ui                             : Database is up to date, no changesets to execute
+2025-07-18T08:44:53.005+03:00  INFO 13776 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2025-07-18T08:44:53.012+03:00  INFO 13776 --- [main] liquibase.util                           : UPDATE SUMMARY
+2025-07-18T08:44:53.012+03:00  INFO 13776 --- [main] liquibase.util                           : Run:                          0
+2025-07-18T08:44:53.012+03:00  INFO 13776 --- [main] liquibase.util                           : Previously run:               1
+2025-07-18T08:44:53.012+03:00  INFO 13776 --- [main] liquibase.util                           : Filtered out:                 0
+2025-07-18T08:44:53.012+03:00  INFO 13776 --- [main] liquibase.util                           : -------------------------------
+2025-07-18T08:44:53.012+03:00  INFO 13776 --- [main] liquibase.util                           : Total change sets:            1
+2025-07-18T08:44:53.013+03:00  INFO 13776 --- [main] liquibase.util                           : Update summary generated
+2025-07-18T08:44:53.014+03:00  INFO 13776 --- [main] liquibase.command                        : Command execution complete
+2025-07-18T08:44:54.599+03:00  INFO 13776 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-18T08:44:54.639+03:00  INFO 13776 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.18.Final
+2025-07-18T08:44:54.677+03:00  INFO 13776 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-07-18T08:44:54.846+03:00  INFO 13776 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-18T08:44:54.872+03:00  WARN 13776 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-07-18T08:44:54.880+03:00  INFO 13776 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 13.21
@@ -464,8 +35,8 @@ Caused by: liquibase.exception.ValidationFailedException: Validation Failed:
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-07-16T10:49:27.218+03:00  INFO 83960 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-07-16T10:49:27.254+03:00  WARN 83960 --- [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+2025-07-18T08:44:55.316+03:00  INFO 13776 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-18T08:44:55.355+03:00  WARN 13776 --- [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
     alter table if exists transactions 
        alter column id set data type uuid" via JDBC [ОШИБКА: столбец "id" нельзя автоматически привести к типу uuid
   Подсказка: Возможно, необходимо указать "USING id::uuid".]
@@ -528,7 +99,7 @@ Caused by: org.postgresql.util.PSQLException: ОШИБКА: столбец "id" 
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.6.18.Final.jar:6.6.18.Final]
 	... 37 common frames omitted
 
-2025-07-16T10:49:27.259+03:00  WARN 83960 --- [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+2025-07-18T08:44:55.363+03:00  WARN 13776 --- [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
     alter table if exists transactions 
        alter column currency set data type smallint" via JDBC [ОШИБКА: столбец "currency" нельзя автоматически привести к типу smallint
   Подсказка: Возможно, необходимо указать "USING currency::smallint".]
@@ -591,7 +162,7 @@ Caused by: org.postgresql.util.PSQLException: ОШИБКА: столбец "curr
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.6.18.Final.jar:6.6.18.Final]
 	... 37 common frames omitted
 
-2025-07-16T10:49:27.263+03:00  WARN 83960 --- [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+2025-07-18T08:44:55.365+03:00  WARN 13776 --- [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
     alter table if exists transactions 
        alter column sender_id set data type uuid" via JDBC [ОШИБКА: столбец "sender_id" нельзя автоматически привести к типу uuid
   Подсказка: Возможно, необходимо указать "USING sender_id::uuid".]
@@ -654,17 +225,37 @@ Caused by: org.postgresql.util.PSQLException: ОШИБКА: столбец "send
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.6.18.Final.jar:6.6.18.Final]
 	... 37 common frames omitted
 
-2025-07-16T10:49:27.266+03:00  INFO 83960 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-07-16T10:49:27.374+03:00  WARN 83960 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-07-16T10:49:27.404+03:00  INFO 83960 --- [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
-2025-07-16T10:49:27.759+03:00  INFO 83960 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-07-16T10:49:28.100+03:00  INFO 83960 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
-2025-07-16T10:49:28.107+03:00  INFO 83960 --- [main] c.e.T.TransactionServiceApplication      : Started TransactionServiceApplication in 4.463 seconds (process running for 4.956)
-2025-07-16T10:49:33.444+03:00  INFO 83960 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-07-16T10:49:33.445+03:00  INFO 83960 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-07-16T10:49:33.446+03:00  INFO 83960 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-07-16T10:49:33.840+03:00  INFO 83960 --- [http-nio-8082-exec-4] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 185 ms
-2025-07-16T10:49:38.109+03:00 DEBUG 83960 --- [http-nio-8082-exec-5] o.s.web.client.RestTemplate              : HTTP GET https://www.cbr-xml-daily.ru/daily.xml
-2025-07-16T10:49:38.116+03:00 DEBUG 83960 --- [http-nio-8082-exec-5] o.s.web.client.RestTemplate              : Accept=[application/octet-stream, application/json, application/yaml, application/*+json, */*]
-2025-07-16T10:49:40.404+03:00 DEBUG 83960 --- [http-nio-8082-exec-5] o.s.web.client.RestTemplate              : Response 200 OK
-2025-07-16T10:49:40.405+03:00 DEBUG 83960 --- [http-nio-8082-exec-5] o.s.web.client.RestTemplate              : Reading to [[B] as "text/xml"
+2025-07-18T08:44:55.371+03:00  INFO 13776 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-18T08:44:55.442+03:00  WARN 13776 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-18T08:44:55.469+03:00  INFO 13776 --- [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-07-18T08:44:55.842+03:00  INFO 13776 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-07-18T08:44:56.180+03:00  INFO 13776 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2025-07-18T08:44:56.186+03:00  INFO 13776 --- [main] c.e.T.TransactionServiceApplication      : Started TransactionServiceApplication in 5.616 seconds (process running for 6.039)
+2025-07-18T08:50:16.752+03:00  INFO 13776 --- [http-nio-8082-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-18T08:50:16.752+03:00  INFO 13776 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-07-18T08:50:16.754+03:00  INFO 13776 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-07-18T08:50:17.199+03:00  INFO 13776 --- [http-nio-8082-exec-7] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 219 ms
+2025-07-18T08:52:25.010+03:00 DEBUG 13776 --- [http-nio-8082-exec-3] o.s.web.client.RestTemplate              : HTTP GET https://www.cbr-xml-daily.ru/daily.xml
+2025-07-18T08:52:25.018+03:00 DEBUG 13776 --- [http-nio-8082-exec-3] o.s.web.client.RestTemplate              : Accept=[application/octet-stream, application/json, application/yaml, application/*+json, */*]
+2025-07-18T08:52:25.204+03:00 DEBUG 13776 --- [http-nio-8082-exec-3] o.s.web.client.RestTemplate              : Response 200 OK
+2025-07-18T08:52:25.205+03:00 DEBUG 13776 --- [http-nio-8082-exec-3] o.s.web.client.RestTemplate              : Reading to [[B] as "text/xml"
+2025-07-18T08:52:40.889+03:00 DEBUG 13776 --- [http-nio-8082-exec-2] o.s.web.client.RestTemplate              : HTTP GET https://www.cbr-xml-daily.ru/daily.xml
+2025-07-18T08:52:40.889+03:00 DEBUG 13776 --- [http-nio-8082-exec-2] o.s.web.client.RestTemplate              : Accept=[application/octet-stream, application/json, application/yaml, application/*+json, */*]
+2025-07-18T08:52:40.974+03:00 DEBUG 13776 --- [http-nio-8082-exec-2] o.s.web.client.RestTemplate              : Response 200 OK
+2025-07-18T08:52:40.975+03:00 DEBUG 13776 --- [http-nio-8082-exec-2] o.s.web.client.RestTemplate              : Reading to [[B] as "text/xml"
+2025-07-18T09:54:19.703+03:00 DEBUG 13776 --- [http-nio-8082-exec-6] o.s.web.client.RestTemplate              : HTTP GET https://www.cbr-xml-daily.ru/daily.xml
+2025-07-18T09:54:19.704+03:00 DEBUG 13776 --- [http-nio-8082-exec-6] o.s.web.client.RestTemplate              : Accept=[application/octet-stream, application/json, application/yaml, application/*+json, */*]
+2025-07-18T09:54:19.841+03:00 DEBUG 13776 --- [http-nio-8082-exec-6] o.s.web.client.RestTemplate              : Response 200 OK
+2025-07-18T09:54:19.844+03:00 DEBUG 13776 --- [http-nio-8082-exec-6] o.s.web.client.RestTemplate              : Reading to [[B] as "text/xml"
+2025-07-18T10:02:37.491+03:00 DEBUG 13776 --- [http-nio-8082-exec-8] o.s.web.client.RestTemplate              : HTTP GET https://www.cbr-xml-daily.ru/daily.xml
+2025-07-18T10:02:37.491+03:00 DEBUG 13776 --- [http-nio-8082-exec-8] o.s.web.client.RestTemplate              : Accept=[application/octet-stream, application/json, application/yaml, application/*+json, */*]
+2025-07-18T10:02:39.712+03:00 DEBUG 13776 --- [http-nio-8082-exec-8] o.s.web.client.RestTemplate              : Response 200 OK
+2025-07-18T10:02:39.713+03:00 DEBUG 13776 --- [http-nio-8082-exec-8] o.s.web.client.RestTemplate              : Reading to [[B] as "text/xml"
+2025-07-18T10:07:33.977+03:00 DEBUG 13776 --- [http-nio-8082-exec-10] o.s.web.client.RestTemplate              : HTTP GET https://www.cbr-xml-daily.ru/daily.xml
+2025-07-18T10:07:33.978+03:00 DEBUG 13776 --- [http-nio-8082-exec-10] o.s.web.client.RestTemplate              : Accept=[application/octet-stream, application/json, application/yaml, application/*+json, */*]
+2025-07-18T10:07:34.103+03:00 DEBUG 13776 --- [http-nio-8082-exec-10] o.s.web.client.RestTemplate              : Response 200 OK
+2025-07-18T10:07:34.103+03:00 DEBUG 13776 --- [http-nio-8082-exec-10] o.s.web.client.RestTemplate              : Reading to [[B] as "text/xml"
+2025-07-18T10:10:03.627+03:00 DEBUG 13776 --- [http-nio-8082-exec-5] o.s.web.client.RestTemplate              : HTTP GET https://www.cbr-xml-daily.ru/daily.xml
+2025-07-18T10:10:03.628+03:00 DEBUG 13776 --- [http-nio-8082-exec-5] o.s.web.client.RestTemplate              : Accept=[application/octet-stream, application/json, application/yaml, application/*+json, */*]
+2025-07-18T10:10:03.818+03:00 DEBUG 13776 --- [http-nio-8082-exec-5] o.s.web.client.RestTemplate              : Response 200 OK
+2025-07-18T10:10:03.818+03:00 DEBUG 13776 --- [http-nio-8082-exec-5] o.s.web.client.RestTemplate              : Reading to [[B] as "text/xml"

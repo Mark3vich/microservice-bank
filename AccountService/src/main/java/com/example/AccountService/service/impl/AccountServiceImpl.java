@@ -4,16 +4,23 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.example.AccountService.client.CurrencyClient;
 import com.example.AccountService.dto.request.AccountRequest;
 import com.example.AccountService.enums.Currency;
 import com.example.AccountService.exception.InvalidCurrencyException;
 import com.example.AccountService.model.Account;
+import com.example.AccountService.model.OutboxEvent;
 import com.example.AccountService.repository.AccountRepository;
+import com.example.AccountService.repository.OutboxRepository;
 import com.example.AccountService.service.AccountService;
+
+import com.example.AccountService.interfaces.TransferStep;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import java.time.LocalDateTime;
 
 @Service
 @RequiredArgsConstructor
@@ -22,6 +29,7 @@ public class AccountServiceImpl implements AccountService {
     private final AccountRepository accountRepository;
     private final CurrencyClient currencyClient;
     private final SagaOrchestrator sagaOrchestrator;
+    private final OutboxRepository outboxRepository;
 
     @Override
     public Account getAccount(UUID id) {
@@ -87,6 +95,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
+    @Transactional
     public boolean transferMoney(UUID fromAccountId, UUID toAccountId, BigDecimal amount) {
         if (fromAccountId.equals(toAccountId)) {
             throw new IllegalArgumentException("Нельзя перевести деньги на тот же аккаунт");
@@ -110,7 +119,7 @@ public class AccountServiceImpl implements AccountService {
         } else {
             amountToDeposit = amount;
         }
-        return sagaOrchestrator.transfer(fromAccountId, toAccountId, amount, new SagaOrchestrator.TransferStep() {
+        boolean result = sagaOrchestrator.transfer(fromAccountId, toAccountId, amount, new TransferStep() {
             @Override
             public void withdraw(Account from, BigDecimal amt) {
                 from.withdraw(amt);
@@ -121,11 +130,20 @@ public class AccountServiceImpl implements AccountService {
             }
             @Override
             public void compensate(Account from, Account to, BigDecimal amt) {
-                // Откат: вернуть деньги на fromAccount, если они были сняты
                 from.deposit(amt);
                 to.withdraw(amountToDeposit);
             }
         });
+        if (result) {
+            OutboxEvent event = OutboxEvent.builder()
+                .eventType("MoneyTransferred")
+                .payload("{\"fromAccountId\":\"" + fromAccountId + "\",\"toAccountId\":\"" + toAccountId + "\",\"amount\":" + amount + "}")
+                .published(false)
+                .createdAt(LocalDateTime.now())
+                .build();
+            outboxRepository.save(event);
+        }
+        return result;
     }
     
 }

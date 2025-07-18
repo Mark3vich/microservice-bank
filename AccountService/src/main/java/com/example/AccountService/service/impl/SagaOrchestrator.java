@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 import com.example.AccountService.repository.AccountRepository;
+import com.example.AccountService.interfaces.TransferStep;
 import com.example.AccountService.model.Account;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -38,11 +39,5 @@ public class SagaOrchestrator {
             accountRepository.save(toAccount);
             throw new RuntimeException("Saga failed, compensation applied: " + e.getMessage());
         }
-    }
-
-    public interface TransferStep {
-        void withdraw(Account from, BigDecimal amount);
-        void deposit(Account to, BigDecimal amount);
-        void compensate(Account from, Account to, BigDecimal amount);
     }
 }
